@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find pc2gazebo)/ext/gazebo-room-with-furniture/AtkHall6thFloorWithFurniture.world" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="verbose" value="true"/>
+  </include>
+  <include file="$(find husky_gazebo)/launch/spawn_husky.launch">
+    <arg name="laser_enabled" value="false"/>
+    <arg name="urdf_extras" value="$(find pc2gazebo)/urdf/VLP-16-include.urdf.xacro" />
+  </include>
+
+  <!-- RViz -->
+  <arg name="rviz" default="true"/>
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" args="-d $(find pc2gazebo)/rviz/atkhall-world.rviz" />
+</launch>

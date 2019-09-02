@@ -1,5 +1,8 @@
 ros-melodic-gazebo-ros-pkgs
 ros-melodic-velodyne-description
+ros-melodic-velodyne-gazebo-plusins
 ros-melodic-rviz
 ros-melodic-robot-state-publisher
+ros-melodic-husky-gazebo
 python-pip
+python-catkin-tools

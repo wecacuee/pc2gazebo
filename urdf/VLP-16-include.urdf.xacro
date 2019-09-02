@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="VLP-16-include" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro" />
+  <VLP-16 parent="top_plate_front_link" name="velodyne" topic="/velodyne_points" hz="10" samples="440" gpu="true">
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+  </VLP-16>
+</robot>
