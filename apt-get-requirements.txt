@@ -1,0 +1,5 @@
+ros-melodic-gazebo-ros-pkgs
+ros-melodic-velodyne-description
+ros-melodic-rviz
+ros-melodic-robot-state-publisher
+python-pip
