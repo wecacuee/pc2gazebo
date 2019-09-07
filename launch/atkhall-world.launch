@@ -15,5 +15,9 @@
 
   <!-- RViz -->
   <arg name="rviz" default="true"/>
-  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" args="-d $(find pc2gazebo)/rviz/atkhall-world.rviz" />
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" args="-d $(find pc2gazebo)/rviz/atkhall-world.rviz" />
+
+
+  <!-- Save ply file -->
+  <node pkg="pc2gazebo" type="pc2gazebo.py" name="save_pointcloud_to_ply" output="screen" />
 </launch>

@@ -8,7 +8,6 @@ Panels:
         - /TF1/Frames1
         - /RobotModel1
         - /VLP-161
-        - /VLP-161/Status1
         - /InteractiveMarkers1
       Splitter Ratio: 0.2700296640396118
     Tree Height: 746
@@ -30,7 +29,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: VLP-16
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -67,11 +66,21 @@ Visualization Manager:
           Value: true
         front_bumper_link:
           Value: true
+        front_left_wheel_link:
+          Value: true
+        front_right_wheel_link:
+          Value: true
         imu_link:
           Value: true
         inertial_link:
           Value: true
+        odom:
+          Value: true
         rear_bumper_link:
+          Value: true
+        rear_left_wheel_link:
+          Value: true
+        rear_right_wheel_link:
           Value: true
         top_chassis_link:
           Value: true
@@ -98,24 +107,33 @@ Visualization Manager:
             {}
           front_bumper_link:
             {}
+          front_left_wheel_link:
+            {}
+          front_right_wheel_link:
+            {}
           imu_link:
             {}
           inertial_link:
             {}
           rear_bumper_link:
             {}
+          rear_left_wheel_link:
+            {}
+          rear_right_wheel_link:
+            {}
           top_chassis_link:
             {}
           top_plate_link:
             top_plate_front_link:
-              {}
+              velodyne_base_link:
+                velodyne:
+                  {}
             top_plate_rear_link:
               {}
-            velodyne_base_link:
-              velodyne:
-                {}
           user_rail_link:
             {}
+        odom:
+          {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -209,7 +227,7 @@ Visualization Manager:
           Show Trail: false
           Value: true
       Name: RobotModel
-      Robot Description: /husky/robot_description
+      Robot Description: /robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
@@ -251,7 +269,7 @@ Visualization Manager:
       Show Axes: false
       Show Descriptions: true
       Show Visual Aids: false
-      Update Topic: /husky/twist_marker_server/update
+      Update Topic: /twist_marker_server/update
       Value: true
   Enabled: true
   Global Options:
@@ -281,7 +299,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.5023832321166992
+      Distance: 9.210199356079102
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -296,10 +314,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.2847972512245178
+      Pitch: 0.20979729294776917
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 4.9485979080200195
+      Yaw: 4.053596496582031
     Saved: ~
 Window Geometry:
   Displays:

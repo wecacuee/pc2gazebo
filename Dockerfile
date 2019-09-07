@@ -1,4 +1,5 @@
-FROM ros:melodic-perception-bionic
+#FROM ros:melodic-perception-bionic
+FROM votenet
 
 RUN apt-get update && \
     apt-get install -y wget apt-transport-https && \
@@ -16,4 +17,34 @@ RUN apt-get update && \
 
 
 COPY pip-requirements.txt /tmp/pip-requirements.txt
+RUN pip3 install --no-cache-dir -r /tmp/pip-requirements.txt
 RUN pip install --no-cache-dir -r /tmp/pip-requirements.txt
+
+
+ENV CUDA_VERSION 10.0.130
+
+ENV CUDA_PKG_VERSION 10.0=$CUDA_VERSION-1
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
+cuda-cudart-$CUDA_PKG_VERSION && \
+ln -s cuda-10.0 /usr/local/cuda && \
+rm -rf /var/lib/apt/lists/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

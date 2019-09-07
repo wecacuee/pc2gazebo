@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.6'>
+  <world name='__default__'>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <include name="ground_plane" static="1">
+      <uri>file://models/ground_plane</uri>
+    </include>
+    <include name="sun" static="1">
+      <uri>file://models/sun</uri>
+    </include>
+    <!-- include  name="AtkHall6thFloor" static="1" >
+      <uri>model://AtkHall6thFloor</uri>
+      <pose frame=''>1.33 4.83 0 0 -0 -0.52</pose>
+    </include -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>19.7209 -27.9893 53.905 0 1.23952 1.51249</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    {% for model in models %}
+    <include name='{{ model.name }}'>
+      <static>0</static>
+      <uri>model://{{ model.name }}</uri>
+      <pose frame=''>{{ " ".join(["%f"] * 6) % model.pose }}</pose>
+    </include>
+    {% endfor %}
+  </world>
+</sdf>
